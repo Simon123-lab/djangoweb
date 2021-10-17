@@ -1,1 +1,1 @@
-web: gunicorn growy.wsgi --log-file -p
+web: gunicorn eproject.wsgi --log-file -
