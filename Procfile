@@ -1,1 +1,1 @@
-web: gunicorn CCMS.wsgi --log-file -p
+web: gunicorn growy.wsgi --log-file -p
