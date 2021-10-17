@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-m1bb=!^@dt2^1*0=0q2@p!!)c3q6(f-q*)=a20#-d)e=ne#%j9
 DEBUG = False
 DISABLE_COLLECTSTATIC=1
 
-ALLOWED_HOSTS = ['127.0.0.1','/']
+ALLOWED_HOSTS = ['127.0.0.1','https://pythonproject321.herokuapp.com/']
 
 
 # Application definition
