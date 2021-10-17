@@ -1,0 +1,124 @@
+{% extends 'user.html' %}
+{% load static %}
+
+{% comment %} adding title {% endcomment %}
+{% block title %}Login{% endblock title %}
+
+{% comment %} adding style {% endcomment %}
+{% block style %}
+.form-group input{
+            width: 20rem;
+        }
+        .form-group label{
+          font-weight: bold;
+          color: #7951C9;
+      }
+      .btn{
+        background-color: #7951C9;
+        color: white;
+        border: solid 1px;
+
+      }
+      .main{
+        background: linear-gradient(90deg, #7951c9 66.7%, white 10%);
+        height: 100vh;
+      }
+      .botom{
+          margin-bottom: 0px;
+      }
+      .lets{
+        color: white;
+        font-size: 4rem; 
+        font-weight: bold; 
+        position:relative;
+      }
+      .entrance{
+        font-size: 20mm; 
+        color: #7951c9; 
+        font-weight: bold;
+      }
+      .display iframe{
+        margin-left: 20%
+      }
+@media screen and (max-width: 992px){
+            .main{
+                background: linear-gradient(90deg, white 66.7%, white 10%);
+         
+            }
+            .lets{
+                color: #7951c9;
+                font-size: 2rem;
+            }.entrance{
+                font-size: 2rem;
+            }
+      }
+{% endblock style %}
+
+{% comment %} adding login body {% endcomment %}
+{% block body %}
+
+  <div class="container-fluid main" >
+       <div class="row">
+           <div class="col-lg-8 mt-0">
+               
+            <div class="d-flex justify-content-center" >
+                <img src="{% static 'Img/4405402.png' %}" class="mt-5 pt-4" alt="" style="width: 67%; position: absolute; opacity: 0.1;">
+               
+            </div>
+            <div class="d-flex justify-content-center">
+             <h3 class="text-center lets mt-5">LETS PREPARE <br> FOR <br>LAUNCH! </h3>
+            </div>  
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="embed-responsive embed-responsive-4by3 p-5" style="margin-left: 50%;">
+                  <iframe src="https://player.vimeo.com/video/282288809?title=0&byline=0&portrait=0" width="320" height="100" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+           </div>
+           <div class="col-lg-4 col-sm-12">
+            <div class="d-flex justify-content-center">
+                <h1 class="entrance mt-5 pt-3" >
+                    Entrance
+            </h1>
+            </div>         
+           
+            <div class="main_log  d-flex justify-content-center">
+                <form method="POST" action="">
+                {% csrf_token %}
+
+                {% if messages %}
+
+                  {% for message in messages %}
+                    <div class="alert alert-info">
+                    {{ message }}
+                    </div>
+                  {% endfor %}
+
+                {% endif %}
+
+                    <div class="form-group mt-5 ">
+                      <label >Username</label>
+                      <input type="text" name="username" class="form-control" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="mt-2">Password</label>
+                        <input type="password" name="password" class="form-control" required />
+                      </div>
+                      
+                      <div class="form-group">    
+                        <input type="submit" value="Sign In" class="form-control btn mt-3">
+                      </div> 
+                      <h5 class="text-center">
+                          <a href="/reg" style="color: #7951c9; font-size: 4mm;"> Dont Have An Account?</a>
+                       
+                    </h5>
+                    
+                </form>     
+            </div>
+           </div>
+       </div>
+</div>
+
+{% endblock body %}

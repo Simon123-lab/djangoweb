@@ -1,0 +1,297 @@
+{% extends 'user.html' %}
+
+{% block title %}Profile{% endblock title %}
+
+{% comment %} styles to apply {% endcomment %}
+{% block style %}
+.progress {
+            width: 120px;
+            height: 120px;
+            background: none;
+            position: relative;
+          }
+          
+          .progress::after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 6px solid #fff;
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+          
+          .progress>span {
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            z-index: 1;
+          }
+          
+          .progress .progress-left {
+            left: 0;
+          }
+          
+          .progress .progress-bar {
+            width: 100%;
+            height: 100%;
+            background: none;
+            border-width: 6px;
+            border-style: solid;
+            position: absolute;
+            top: 0;
+          }
+          
+          .progress .progress-left .progress-bar {
+            left: 100%;
+            border-top-right-radius: 80px;
+            border-bottom-right-radius: 80px;
+            border-left: 0;
+            -webkit-transform-origin: center left;
+            transform-origin: center left;
+          }
+          
+          .progress .progress-right {
+            right: 0;
+          }
+          
+          .progress .progress-right .progress-bar {
+            left: -100%;
+            border-top-left-radius: 80px;
+            border-bottom-left-radius: 80px;
+            border-right: 0;
+            -webkit-transform-origin: center right;
+            transform-origin: center right;
+          }
+          
+          .progress .progress-value {
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+          .box{
+            width: 40vh;
+            height: 27vh;
+            background-color: #fff;
+            margin-top: 20px;
+            border-radius: 40px;
+            }
+                      .box_txt{
+                          color: #7951c9;
+                          padding-top: 10px;
+                          font-size: 1.7rem;
+}
+{% endblock style %}
+
+{% block body %}
+
+ {% if user.is_authenticated %}
+
+  <div>
+    <!-- main client panel's nav    -->
+    <nav class="navbar navbar-expand-lg navbar-light "  style="background-color: #7951c9;">
+        <a class="navbar-brand text-white"  style="font-size: 2.5rem;">Welcome Sawu</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active ">
+              <a class="nav-link text-white" href="#" style="font-size: 1rem;">Profile<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active ">
+                <a class="nav-link text-white" href="#" style="font-size: 1rem;">Explore Tasks</a>
+              </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">  
+            <a class="btn btn-primary my-2 my-sm-0" href="/logout" style="background-color: white; color: #7951c9;">logout</a> 
+          </form>
+        </div>
+    </nav>
+
+    <!-- client task tracker -->
+    <div class="container-fluid">    
+     <div class="row"> 
+       <div class="col-lg-5 ">
+        <div class="container-fluid">
+          <div class="row mt-4 ">
+              <div class="col-lg-6 col-md-6 d-flex justify-content-center">
+                  
+                 <div class="box">
+                     <h1 class="text-center box_txt">
+                         Progress 1
+                     </h1>
+                <!-- Progress bar 1 -->
+                <div class="progress mx-auto mt-4" data-value='80'>
+                <span class="progress-left">
+               <span class="progress-bar" style="border-color: #7951c9;"></span>
+                </span>
+                <span class="progress-right">
+               <span class="progress-bar" style="border-color: #7951c9;"></span>
+                </span>
+              <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+                <div class="h2 font-weight-bold " style="color: #7951C9;">80<sup class="small">%</sup></div>
+            </div>
+    </div>
+    <!-- END -->
+                   
+    </div>
+        </div>
+              
+    <div class="col-lg-6 col-md-6 d-flex justify-content-center">             
+        <div class="box">
+            <h1 class="text-center box_txt">
+                Progress 2
+            </h1>
+        <!-- Progress bar 1 -->
+        <div class="progress mx-auto mt-4" data-value='60'>
+        <span class="progress-left">
+              <span class="progress-bar" style="border-color: #7951c9;"></span>
+        </span>
+        <span class="progress-right">
+              <span class="progress-bar" style="border-color: #7951c9;"></span>
+        </span>
+        <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+        <div class="h2 font-weight-bold" style="color: #7951C9;">60<sup class="small">%</sup></div>
+        </div>
+    </div>
+    <!-- END -->
+                  
+                </div>
+             </div>
+          </div>
+      </div>
+
+        <div class="row">
+            <div class="col-lg-12 d-flex justify-content-center">
+                <input type="button" value="Add New Task" class="form-control btn mt-5" id="btn" style="background-color: #7951C9; color: white; width: 40%; border-radius:20px;">
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-lg-12  d-flex justify-content-center ml-5">
+                <table class="table ml-5">
+                    
+                  
+                   
+                    <tbody class="ml-5">
+                            <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Name </th>
+                        <th></th>
+                        <th scope="col">Task</th>
+                        <th></th>
+                        <th scope="col">Status</th>
+                      </tr>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Sheryar</td>
+                        <td></td>
+                        <td>Facboo Likes</td>
+                        <td></td>
+                        <td>   <img src="check.png" class="img-responsive" alt="Image" width="10%"> </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Sawera </td>
+                        <td></td>
+                        <td>Insta followers</td>
+                        <td></td>
+                        <td>   <img src="check.png" class="img-responsive" alt="Image" width="10%"> </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Sheroz</td>
+                        <td></td>
+                        <td>Youtube Views</td>
+                        <td></td>
+                        <td>   <img src="check.png" class="img-responsive" alt="Image" width="10%"> </td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+       </div>
+       <script>
+        $(function() {
+    
+            $(".progress").each(function() {
+            
+              var value = $(this).attr('data-value');
+              var left = $(this).find('.progress-left .progress-bar');
+              var right = $(this).find('.progress-right .progress-bar');
+            
+              if (value > 0) {
+                if (value <= 50) {
+                  right.css('transform', 'rotate(' + percentageToDegrees(value) + 'deg)')
+                } else {
+                  right.css('transform', 'rotate(180deg)')
+                  left.css('transform', 'rotate(' + percentageToDegrees(value - 50) + 'deg)')
+                }
+              }
+            
+            })
+            
+            function percentageToDegrees(percentage) {
+            
+              return percentage / 100 * 360
+            
+            }
+            
+            });
+      </script>
+       <!-- <div class="col-lg-7">
+        <div class="container-fluid">
+          <div class="row mt-5">
+             <div class="col-lg-12 mt-5">
+                <div class="container" style="background-color: #9c9c9c; width:60%;">
+                  <div class="d-flex justify-content-center">
+                    <h1 class="text-white mt-3">Upload Image</h1>
+                  </div>
+                    <div class="d-flex justify-content-center">
+                        <form action="" class="form">
+          
+                            <div class="form-group mt-2">
+                              <label class="text-white">Username:</label>
+                              <input type="text" class="form-control" style="width: 20rem;">
+                            </div>
+          
+                            <div class="form-group">
+                                <label class="mt-2 text-white">Upload Image</label>
+                                <input type="file" name="img" accept="image/*" class="form-control">
+                              </div>
+                              <div class="form-group ">
+                                
+                                
+                                </div> 
+                              <div class="form-group d-flex justify-content-center">
+                                
+                                <input type="button" value="Save Changes" class="form-control btn mt-3" style="background-color: #000000; color: white; width: 10rem; border-radius:20px;">
+                              </div> 
+                             
+                            
+                        </form>
+                    </div>
+                </div>              
+              </div>
+          </div>
+      </div>
+       </div> -->
+    </div>
+    </div>
+  </div>
+
+ {% comment %} previous work {% endcomment %}
+ {% comment %} <a class="btn btn-primary" href="/logout">logout</a>  {% endcomment %}
+ {% else %}
+ <a class="btn btn-primary" href="">login</a>
+ {% endif %}
+
+{% endblock body %}
+
+
+

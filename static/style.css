@@ -1,0 +1,18 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.access_links li a, .navbar-brand{
+    color: #fff;
+    text-transform: capitalize;
+}
+.access_btns a{
+    color: #7951c9;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.global-container{
+    background-color: #7951c9 !important;
+}
+

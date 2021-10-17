@@ -1,0 +1,112 @@
+{% extends 'user.html' %}
+{% load static %}
+
+{% block scripts %}
+<script src="{% static 'script.js' %}" defer></script>
+{% endblock scripts %}
+
+{% comment %} display title {% endcomment %}
+{% block title %}Order{% endblock title %}
+
+{% comment %} styling to apply {% endcomment %}
+{% block style %}
+    .form-group input{
+        width: 50vh;
+        }
+        .form-group select{
+        width: 50vh;
+        }
+        .selected{
+            width: 50%!important;
+        }
+        .form-group label{
+            font-weight: bold;
+        }
+        @media screen and (max-width: 991px){
+          .pro_img{
+            display: none;
+          }
+    }
+{% endblock style %}
+
+{% comment %} body content to display {% endcomment %}
+{% block body %}
+
+<div class="container-fluid">
+        <div class="pb-4"  style="width: 100%; height: 100%; background-color: #7951c9;">                   
+            <div class="d-flex justify-content-center pt-4">
+                <h1 class="text-center" id="test" style="width: 40%; height: 100%; font-size: 50px; color: white;">
+                    Get Your Promotion Done!
+                </h1>                          
+            </div>   
+        </div>
+    <div>
+
+    {% comment %} form section {% endcomment %}
+    <div class="row">
+              <div class="col-lg-6 d-flex justify-content-center mt-5">
+                 
+      <form action="" class="form">
+          <div class="form-group ">
+            <label for="email">Profile/Page Name</label>
+            <input type="text" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label >Email Address</label>
+            <input type="email" class="form-control" required>
+          </div>
+        
+            <div class="form-group">
+              <label>Paste Your embed link</label>
+              <input type="text" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label>Select Your Niche</label>
+              <select class="form-control" onchange="socialAcc(this)" required>
+                <option selected>Select Here</option>
+                  <option>Facebook Likes</option>
+                  <option>Instagram Likes</option>
+                  <option>Youtube Views</option>
+                  <option>Instagram Followers</option>
+                  <option>Youtube Subscribers</option>
+                </select>
+            </div>
+
+             <div class="form-group">
+              <label >Tell Us How Much?</label>
+              <select class="form-control" onchange="changeAmount(this)" required>
+                <option readonly selected>Select Here</option>
+                  <option value="50">50</option>
+                  <option value="100">100</option>
+                  <option value="300">300</option>
+                  <option value="500">500</option>
+                  <option value="1000">1000</option>
+                </select>
+            </div>
+            <!-- <h6>Your amount will be<p id="amount"></p></h6> -->
+ 
+                  <span class="form-group">
+                      <label>Amount:</label>
+                      <p class="totalAmount selected">
+                        <span>Rs. </span>
+                        <span id="amount"></span>
+                      </p>
+                  </span>      
+          <input type="submit" class="form-control mt-4 text-white" id="pullbtn" value="Submit" 
+          style="background-color: #7951C9;" />
+        </form>
+  </div>
+                <div class="col-lg-6">
+                    <div class="mt-5 pt-5 d-flex justify-content-center">
+                      <img src="{% static 'Img/promotion.png' %}" class="pro_img" style="width:60%;" alt="" srcset="">
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+{% endblock body %}
+
+
+

@@ -1,0 +1,152 @@
+{% extends 'user.html' %}
+{% load static %}
+
+{% comment %} title to display {% endcomment %}
+{% block title %}Subscribtions{% endblock title %}
+
+{% comment %} styling to apply {% endcomment %}
+{% block style %}
+   *{
+            margin: 0;
+            padding: 0;
+        }
+          .form-group input{
+            width: 45vh;
+        }
+        .form-group select{
+            width: 45vh;
+        }
+        .form-group label{
+            font-weight: bold;
+            color: #7951c9;
+        }
+        .bottom-right {
+         
+          bottom: 0;
+          right: 0;
+          opacity: 0.5;
+          position: fixed;
+        }
+        .bottom-left {
+          position: fixed;
+          opacity: 0.5;
+          bottom: 0;
+          left: 0;
+        }
+        .image{
+            width: 20rem;
+        }
+        @media screen and (min-width: 765px) and (max-width: 1130px){
+            .image{
+                width: 12rem;
+
+            }
+        }
+        @media screen and (max-width: 764px) {
+            .image{
+               visibility: hidden;
+
+        }
+}
+{% endblock style %}
+
+{% comment %} packages conten to display {% endcomment %}
+{% block body %}
+
+<body class="modal-open">
+    <div class="container-fluid">
+        <div class="text-center mt-5" style="font-size: 17mm; font-weight: bold; color: #7951c9;">
+            Are U Ready To Get  Awesome Deals?
+           </div>
+  
+   
+        <div class="row">
+            <div class="col-lg-6 d-flex justify-content-center">
+                <form action="" class="mt-5">
+                    
+                    <div class="form-group">
+                      <label >Account Name</label>
+                      <input type="text" class="form-control" id="">
+                    </div>
+
+                    <div class="form-group">
+                        <label >Official Link</label>
+                        <input type="text" class="form-control" id="">
+                      </div> 
+                
+                      <div class="form-group">
+                        <label>Transfer Money To:</label>
+                        <input type="text" class="form-control" id="">
+                      </div>
+                     
+                    
+                  </form>
+            </div>
+            <div class="col-lg-6 d-flex justify-content-center">
+                <form action="" class="mt-5">
+                    
+                    <div class="form-group">
+                      <label >Email Address</label>
+                      <input type="email" class="form-control" id="">
+                    </div>
+                    <div class="form-group">
+                        <label >Your Package</label>
+                        <select class="form-control" id="sel1" >
+                            <option>Weely Promo</option>
+                            <option>Monthly Promo</option>
+                            <option>Mega Promo</option>
+                            
+                          </select>
+                      </div>
+                      <div class="form-group">
+                        <label>Payment Method</label>
+                        <input type="text" class="form-control" id="">
+                      </div>
+                     
+                    
+                  </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                <input type="button" class="form-control btn mt-4 text-white select " value="Submit" style="background-color: #7951C9; width: 27%;" data-toggle="modal" data-target="#exampleModal">
+            </div>
+        </div>
+       
+  
+   
+        <div class="bottom-right">
+            <img src="{% static 'Img/loudspeaker2.png' %}"  alt="promotion" class=" image">
+        </div>
+        <div class="bottom-left">
+            <img src="{% static 'Img/loudspeaker.png' %}" alt="promotion" class=" image">
+        </div>
+
+      
+    </div>
+
+
+
+     <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog " role="document">
+      <div class="modal-content modalcol " style="background-color: #7951c9;">
+       
+        <div class="modal-body">
+          <div class="">
+            <h1 class="modal-title text-center" style="color: white; font-weight: bold; font-size: 11mm;" id="exampleModalLabel">Successfully Submited</h1>
+          </div>
+          <div>
+              <h3 class="text-center mt-3 " style="color: white; font-size: 5mm;">Please Check Your Email For Further Details!</h3>
+          </div>
+             <div class=" mt-4 d-flex justify-content-center">
+              <button type="button" class="btn btn-secondary mdl_btn " style="background-color: white; color: #7951c9;" data-dismiss="modal">Acknowledge</button>
+             </div>        
+        </div>
+      
+      </div>
+    </div>
+  </div>
+</body>
+
+{% endblock body %}
